@@ -19,12 +19,28 @@ public class DummyFragment extends Fragment {
     int color;
     SimpleRecyclerAdapter adapter;
 
-    public DummyFragment(int color) {
-        this.color = color;
+    public static DummyFragment newInstance(int color) {
+
+        Bundle args = new Bundle();
+
+        DummyFragment fragment = new DummyFragment();
+        args.putInt("color", color);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            color = getArguments().getInt("color");
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.dummy_fragment, container, false);
         final FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.dummyfrag_bg);
         frameLayout.setBackgroundColor(color);
@@ -32,23 +48,27 @@ public class DummyFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+
+
         List<String> list = new ArrayList<String>();
-        for (int i = 0; i < VersionModel.data.length; i++) {
-            list.add(VersionModel.data[i]);
+        for (int i = 0; i < data.length; i++) {
+            list.add(data[i]);
         }
-        adapter = new SimpleRecyclerAdapter(list);
+
+        adapter = new SimpleRecyclerAdapter(getActivity(),list);
         recyclerView.setAdapter(adapter);
+
         return view;
     }
-}
-class VersionModel {
-    public String name;
 
     public static final String[] data = {"Cupcake", "Donut", "Eclair",
             "Froyo", "Gingerbread", "Honeycomb",
+            "Icecream Sandwich", "Jelly Bean", "Kitkat", "Lollipop","Cupcake", "Donut", "Eclair",
+            "Froyo", "Gingerbread", "Honeycomb",
+            "Icecream Sandwich", "Jelly Bean", "Kitkat", "Lollipop","Cupcake", "Donut", "Eclair",
+            "Froyo", "Gingerbread", "Honeycomb",
+            "Icecream Sandwich", "Jelly Bean", "Kitkat", "Lollipop","Cupcake", "Donut", "Eclair",
+            "Froyo", "Gingerbread", "Honeycomb",
             "Icecream Sandwich", "Jelly Bean", "Kitkat", "Lollipop"};
 
-    VersionModel(String name) {
-        this.name = name;
-    }
 }
