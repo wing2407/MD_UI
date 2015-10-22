@@ -2,6 +2,7 @@
     <string name="app_name">应用易</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
 
     <!--drawerlayout-->
     <string name="drawer_open">drawer_open</string>
