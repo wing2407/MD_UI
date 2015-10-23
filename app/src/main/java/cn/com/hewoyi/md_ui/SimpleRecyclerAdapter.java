@@ -1,6 +1,7 @@
 package cn.com.hewoyi.md_ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -62,6 +63,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "进入" + versionModels.get(getAdapterPosition()) + "详情页", Toast.LENGTH_SHORT).show();
+                    context.startActivity(new Intent(context,DetailActivity.class).putExtra("appName",versionModels.get(getAdapterPosition())));
                 }
             });
             appDown.setOnClickListener(new View.OnClickListener() {

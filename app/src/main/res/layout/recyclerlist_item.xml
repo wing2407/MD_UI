@@ -12,6 +12,7 @@
     android:orientation="vertical"
     card_view:cardCornerRadius="2dp"
     card_view:cardElevation="@dimen/cardview_default_elevation"
+    android:background="?android:attr/selectableItemBackground"
     >
 
     <RelativeLayout

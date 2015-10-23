@@ -1,6 +1,10 @@
 package cn.com.hewoyi.md_ui;
 
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -9,12 +13,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,20 +62,19 @@ public class MainActivity extends AppCompatActivity {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
+                switch (menuItem.getItemId()) {
                     case R.id.item_one:
-                        Toast.makeText(MainActivity.this,"点击了-->"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "点击了-->" + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.item_two:
-                        Toast.makeText(MainActivity.this,"点击了-->"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "点击了-->" + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.item_three:
-                        Toast.makeText(MainActivity.this,"点击了-->"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "点击了-->" + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
                         break;
                 }
                 menuItem.setChecked(false);//点击了重新设为未选中状态
-               mDrawerLayout.closeDrawers();//关闭抽屉
+                mDrawerLayout.closeDrawers();//关闭抽屉
                 return true;
             }
         });
@@ -91,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         //showToast("Three");
+                        break;
                     case 4:
                         //
                         break;
@@ -109,31 +116,52 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    DatabaseTable db = new DatabaseTable(this);
+
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Cursor c = db.getWordMatches(query, null);
+            //process Cursor and display results
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+            SearchManager searchManager =
+                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchView searchView =
+                    (SearchView) menu.findItem(R.id.action_search).getActionView();
+            searchView.setSearchableInfo(
+                    searchManager.getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(false);
+
         return true;
     }
 
-    @Override
+  /*  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }else if(id == R.id.action_search){
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_search:
+               // onSearchRequested();
+                return true;
+            default:
+                return false;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag( DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "主页");
-        adapter.addFrag( DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "分类");
-        adapter.addFrag( DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "游戏");
-        adapter.addFrag( DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "排行");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "主页");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "分类");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "游戏");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "排行");
         viewPager.setAdapter(adapter);
     }
 }
