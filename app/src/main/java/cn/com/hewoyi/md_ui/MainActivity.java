@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         //设置Viewpager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setupViewPager(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -143,22 +144,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-  /*  @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.action_search:
-               // onSearchRequested();
-                return true;
-            default:
-                return false;
-        }
-
-    }*/
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "主页");
+        adapter.addFrag(HomeFragment.newInstance(), "主页");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "分类");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "游戏");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "排行");

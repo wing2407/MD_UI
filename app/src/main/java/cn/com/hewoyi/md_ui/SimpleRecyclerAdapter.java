@@ -64,6 +64,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 public void onClick(View v) {
                     Toast.makeText(context, "进入" + versionModels.get(getAdapterPosition()) + "详情页", Toast.LENGTH_SHORT).show();
                     context.startActivity(new Intent(context,DetailActivity.class).putExtra("appName",versionModels.get(getAdapterPosition())));
+
                 }
             });
             appDown.setOnClickListener(new View.OnClickListener() {

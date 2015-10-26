@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="#1976D2">
+    android:background="?attr/colorPrimary">
 
     <ImageView
         android:id="@+id/img"
@@ -19,7 +19,7 @@
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
         android:text="登陆 / 注册"
-        android:textColor="@android:color/primary_text_dark"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         android:elevation="5dp" />
 
