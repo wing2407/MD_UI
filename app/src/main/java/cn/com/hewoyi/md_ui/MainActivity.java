@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         //设置Viewpager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+       // viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setPageTransformer(true,new DepthPageTransformer());
         setupViewPager(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -149,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(HomeFragment.newInstance(), "主页");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "分类");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "游戏");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.ripple_material_light)), "排行");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "分类");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "游戏");
+        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "排行");
         viewPager.setAdapter(adapter);
     }
 }
