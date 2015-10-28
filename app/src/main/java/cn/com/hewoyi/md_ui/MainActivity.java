@@ -1,10 +1,6 @@
 package cn.com.hewoyi.md_ui;
 
 
-import android.app.SearchManager;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -15,7 +11,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -118,9 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    DatabaseTable db = new DatabaseTable(this);
-
-
+  /*  DatabaseTable db = new DatabaseTable(this);
     private void handleIntent(Intent intent) {
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
@@ -128,11 +121,12 @@ public class MainActivity extends AppCompatActivity {
             Cursor c = db.getWordMatches(query, null);
             //process Cursor and display results
         }
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+/*
 
             SearchManager searchManager =
                     (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -141,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             searchView.setSearchableInfo(
                     searchManager.getSearchableInfo(getComponentName()));
             searchView.setIconifiedByDefault(false);
+*/
 
         return true;
     }
@@ -151,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(HomeFragment.newInstance(), "主页");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "分类");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "游戏");
+        adapter.addFrag(GameFragment.newInstance(), "游戏");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "排行");
         viewPager.setAdapter(adapter);
     }

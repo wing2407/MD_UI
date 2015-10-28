@@ -9,12 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
-
-/**
- * Created by Administrator on 2015/10/27.
- */
-public class HomeFragmentRvNewAdapter extends RecyclerView.Adapter<HomeFragmentRvNewAdapter.ViewHolder> {
+public class HomeFragmentRvAdapter extends RecyclerView.Adapter<HomeFragmentRvAdapter.ViewHolder> {
 
     private Context mContext;
     private int[] ids ={R.mipmap.ic_launcher,
@@ -22,20 +17,20 @@ public class HomeFragmentRvNewAdapter extends RecyclerView.Adapter<HomeFragmentR
             R.mipmap.ic_launcher, R.mipmap.ic_launcher,
             R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
-    public HomeFragmentRvNewAdapter(Context c) {
+    public HomeFragmentRvAdapter(Context c) {
         mContext = c;
 
     }
 
 
     @Override
-    public HomeFragmentRvNewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HomeFragmentRvAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.fragment_home_recycler_item, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(HomeFragmentRvNewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(HomeFragmentRvAdapter.ViewHolder holder, int position) {
         holder.imageView.setImageResource(ids[position]);
         holder.appName.setText("AppName");
         holder.downNum.setText("DownNum");

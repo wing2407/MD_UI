@@ -5,6 +5,7 @@ import android.os.Message;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -26,10 +27,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HomeFragment extends Fragment {
 
     private ViewPager adViewPager;  //广告栏
-    private LinearLayout pagerLayout;
     private List<View> pageViews;   //view数据
     private ImageView[] imageViews; //小圆点数组
-    private ImageView imageView;
     private HomeFragmentAdAdapter adapter;
     private AtomicInteger atomicInteger = new AtomicInteger(0);
     private boolean isContinue = true;  //滚动标志
@@ -37,17 +36,17 @@ public class HomeFragment extends Fragment {
 
 
     public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+        /*HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+        fragment.setArguments(args);*/
+        return new HomeFragment();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
+       /* if (getArguments() != null) {
+        }*/
 
 
     }
@@ -63,23 +62,26 @@ public class HomeFragment extends Fragment {
         initViewPager(v);
         RecyclerView rv_new = (RecyclerView)v.findViewById(R.id.fg_home_rv_new);
         rv_new.setHasFixedSize(true);
-        rv_new.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rv_new.setAdapter(new HomeFragmentRvNewAdapter(getActivity()));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view
+//        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
+        rv_new.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));//横向显示
+        rv_new.setAdapter(new HomeFragmentRvAdapter(getActivity()));
 
         RecyclerView rv_app = (RecyclerView)v.findViewById(R.id.fg_home_rv_app);
         rv_app.setHasFixedSize(true);
         rv_app.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rv_app.setAdapter(new HomeFragmentRvNewAdapter(getActivity()));
+        rv_app.setAdapter(new HomeFragmentRvAdapter(getActivity()));
 
         RecyclerView rv_game = (RecyclerView)v.findViewById(R.id.fg_home_rv_game);
         rv_game.setHasFixedSize(true);
         rv_game.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rv_game.setAdapter(new HomeFragmentRvNewAdapter(getActivity()));
+        rv_game.setAdapter(new HomeFragmentRvAdapter(getActivity()));
 
         RecyclerView rv_theme = (RecyclerView)v.findViewById(R.id.fg_home_rv_theme);
         rv_theme.setHasFixedSize(true);
         rv_theme.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rv_theme.setAdapter(new HomeFragmentRvNewAdapter(getActivity()));
+        rv_theme.setAdapter(new HomeFragmentRvAdapter(getActivity()));
 
         return v;
     }
@@ -109,7 +111,7 @@ public class HomeFragment extends Fragment {
 
 
     private void initPageAdapter() {
-        pageViews = new ArrayList<View>();
+        pageViews = new ArrayList<>();
 
         ImageView img1 = new ImageView(getActivity());
         img1.setBackgroundResource(R.mipmap.ic_launcher);
@@ -140,13 +142,11 @@ public class HomeFragment extends Fragment {
 
     /**
      * 滚动广告列表
-     *
-     * @param v
      */
     private void initViewPager(View v) {
 
         //从布局文件中获取ViewPager父容器
-        pagerLayout = (LinearLayout) v.findViewById(R.id.view_pager_content);
+        LinearLayout pagerLayout = (LinearLayout) v.findViewById(R.id.view_pager_content);
         //创建ViewPager
         adViewPager = new ViewPager(getActivity().getApplicationContext());
 
@@ -182,8 +182,6 @@ public class HomeFragment extends Fragment {
 
     /**
      * 初始化小圆点
-     *
-     * @param v
      */
     private void initCirclePoint(View v) {
         ViewGroup group = (ViewGroup) v.findViewById(R.id.viewGroup);
@@ -191,7 +189,7 @@ public class HomeFragment extends Fragment {
         //广告栏的小圆点图标
         for (int i = 0; i < pageViews.size(); i++) {
             //创建一个ImageView, 并设置宽高. 将该对象放入到数组中
-            imageView = new ImageView(getActivity());
+            ImageView imageView = new ImageView(getActivity());
             imageView.setLayoutParams(new LayoutParams(15, 15));
             imageViews[i] = imageView;
 

@@ -13,9 +13,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-/**
- * Created by Suleiman on 14-04-2015.
- */
 public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.VersionViewHolder> {
     List<String> versionModels;
     Context context;
@@ -31,8 +28,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     @Override
     public VersionViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerlist_item, viewGroup, false);
-        VersionViewHolder viewHolder = new VersionViewHolder(view);
-        return viewHolder;
+        return new VersionViewHolder(view);
     }
 
     @Override
