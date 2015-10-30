@@ -1,6 +1,8 @@
 package cn.com.hewoyi.md_ui;
 
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
@@ -11,10 +13,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -76,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         //设置Viewpager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-       // viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        viewPager.setPageTransformer(true,new DepthPageTransformer());
+        // viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setPageTransformer(true, new DepthPageTransformer());
         setupViewPager(viewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -126,28 +131,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-/*
-
-            SearchManager searchManager =
-                    (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-            SearchView searchView =
-                    (SearchView) menu.findItem(R.id.action_search).getActionView();
-            searchView.setSearchableInfo(
-                    searchManager.getSearchableInfo(getComponentName()));
-            searchView.setIconifiedByDefault(false);
-*/
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
         return true;
     }
 
 
-
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(HomeFragment.newInstance(), "主页");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "分类");
-        adapter.addFrag(GameFragment.newInstance(), "游戏");
         adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "排行");
+        adapter.addFrag(GameFragment.newInstance(), "游戏");
+        adapter.addFrag(CategoryFragment.newInstance(), "分类");
         viewPager.setAdapter(adapter);
     }
 }

@@ -36,9 +36,12 @@ public class HomeFragment extends Fragment {
 
 
     public static HomeFragment newInstance() {
-        /*HomeFragment fragment = new HomeFragment();
+       /* HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
+
         fragment.setArguments(args);*/
+        ArrayList<String> list = new ArrayList<>() ;
+
         return new HomeFragment();
     }
 

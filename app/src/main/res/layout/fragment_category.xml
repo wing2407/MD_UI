@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.com.hewoyi.md_ui.GameFragment">
+    tools:context="cn.com.hewoyi.md_ui.CategoryFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/fg_game_rv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/fg_category_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </FrameLayout>

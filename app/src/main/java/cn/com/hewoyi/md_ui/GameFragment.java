@@ -35,7 +35,7 @@ public class GameFragment extends Fragment {
         RecyclerView fg_game_rv = (RecyclerView)v.findViewById(R.id.fg_game_rv);
         fg_game_rv.setHasFixedSize(true);
        // fg_game_rv.setLayoutManager(new GridLayoutManager(getActivity(), 2));//这里用线性宫格显示 类似于grid view
-        fg_game_rv.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
+        fg_game_rv.setLayoutManager(new StaggeredGridLayoutManager(3, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
         fg_game_rv.setAdapter(new GameFragmentRvAdapter(getActivity()));
 
         return v;

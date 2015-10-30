@@ -12,10 +12,7 @@ import android.widget.TextView;
 public class HomeFragmentRvAdapter extends RecyclerView.Adapter<HomeFragmentRvAdapter.ViewHolder> {
 
     private Context mContext;
-    private int[] ids ={R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+    private int[] ids = {R.mipmap.b1,R.mipmap.b2,R.mipmap.b3,R.mipmap.b4,R.mipmap.b5,R.mipmap.b6,R.mipmap.b7,R.mipmap.b8,R.mipmap.b9};
 
     public HomeFragmentRvAdapter(Context c) {
         mContext = c;
@@ -31,9 +28,10 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<HomeFragmentRvAd
 
     @Override
     public void onBindViewHolder(HomeFragmentRvAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(ids[position]);
-        holder.appName.setText("AppName");
-        holder.downNum.setText("DownNum");
+            holder.imageView.setImageResource(ids[position]);
+            holder.appName.setText("AppName");
+            holder.downNum.setText("DownNum");
+
     }
 
     @Override
@@ -50,8 +48,8 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<HomeFragmentRvAd
         public ViewHolder(View v) {
             super(v);
             imageView = (ImageView) v.findViewById(R.id.fg_home_rv_item_img);
-            appName = (TextView)v.findViewById(R.id.fg_home_rv_item_name);
-            downNum = (TextView)v.findViewById(R.id.fg_home_rv_item_downNum);
+            appName = (TextView) v.findViewById(R.id.fg_home_rv_item_name);
+            downNum = (TextView) v.findViewById(R.id.fg_home_rv_item_downNum);
         }
     }
 
