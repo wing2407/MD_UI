@@ -8,6 +8,7 @@
         <item name="colorControlActivated">#3aabb9</item>
         <item name="android:textColorHint">#FFFFFF</item>
         <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlHighlight">#3aabb9</item>
         <item name="android:textColorPrimary">@android:color/white</item>
 
     </style>

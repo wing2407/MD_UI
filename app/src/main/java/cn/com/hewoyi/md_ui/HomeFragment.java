@@ -158,7 +158,7 @@ public class HomeFragment extends Fragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
 
         //根据屏幕信息设置ViewPager广告容器的宽高
-        adViewPager.setLayoutParams(new LayoutParams(dm.widthPixels, dm.heightPixels * 2 / 7));
+        adViewPager.setLayoutParams(new LayoutParams(dm.widthPixels, dm.heightPixels * 3 / 9));
 
         //将ViewPager容器设置到布局文件父容器中
         pagerLayout.addView(adViewPager);

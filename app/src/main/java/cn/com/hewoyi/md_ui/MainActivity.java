@@ -13,11 +13,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -142,9 +144,12 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(HomeFragment.newInstance(), "主页");
-        adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "排行");
+        //adapter.addFrag(DummyFragment.newInstance(getResources().getColor(R.color.primary_material_light)), "排行");
+        adapter.addFrag(RankingFragment.newInstance(),"排行");
         adapter.addFrag(GameFragment.newInstance(), "游戏");
         adapter.addFrag(CategoryFragment.newInstance(), "分类");
         viewPager.setAdapter(adapter);
     }
+
+
 }
