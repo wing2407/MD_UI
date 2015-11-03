@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
     <item
 
         android:id="@+id/menu_save"
@@ -9,7 +9,7 @@
     <!-- menu group -->
     <group android:id="@+id/group_delete">
         <item
-            app:po        android:id="@+id/menu_archive"
+            android:id="@+id/menu_archive"
             android:title="@string/menu_archive" />
         <item
             android:id="@+id/menu_delete"
