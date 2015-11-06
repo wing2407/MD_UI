@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 /**
  * Class to manage status and navigation bar tint effects when using KitKat
  * translucent system UI modes.
- *
+ *  4.4系统系统栏透明
  */
 public class SystemBarTintManager {
 

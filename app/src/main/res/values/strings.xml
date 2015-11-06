@@ -8,14 +8,13 @@
     <!--drawerlayout-->
     <string name="drawer_open">drawer_open</string>
     <string name="drawer_close">drawer_close</string>
+
+
     <string name="title_activity_search_results">SearchResultsActivity</string>
-
-
+    <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
 
-    <string name="menu_delete">menu_delete</string>
-    <string name="menu_save">menu_save</string>
-    <string name="menu_archive">menu_archive</string>
-    <string name="descr_overflow_button">descr_overflow_button</string>
+
+
 
 </resources>
