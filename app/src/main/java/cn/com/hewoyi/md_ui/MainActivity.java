@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(cn.com.hewoyi.md_ui.R.layout.activity_main);
 
+        getSharedPreferences("test", MODE_APPEND).edit().putString("item", getTaskId()+"").commit();
+        Log.i("Main",getPackageCodePath());
 
         //设定状态栏的颜色，当版本大于4.4时起作用
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -128,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_search:
                 startActivity(new Intent(this,SearchActivity.class));
+
         }
 
         return super.onOptionsItemSelected(item);

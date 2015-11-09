@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/search_rv_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
@@ -18,13 +19,13 @@
 
         android:layout_height="wrap_content"
         android:textColor="@android:color/secondary_text_light"/>
-
+<!--
     <ImageView
         android:id="@+id/search_rv_img"
         android:layout_gravity="center"
         android:layout_marginRight="16dp"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@mipmap/ic_action_cancel"/>
+        android:src="@mipmap/ic_action_cancel"/>-->
 
 </LinearLayout>
