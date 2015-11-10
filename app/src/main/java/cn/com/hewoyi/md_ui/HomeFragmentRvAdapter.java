@@ -28,6 +28,7 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<HomeFragmentRvAd
 
     @Override
     public void onBindViewHolder(HomeFragmentRvAdapter.ViewHolder holder, int position) {
+
             holder.imageView.setImageResource(ids[position]);
             holder.appName.setText("AppName");
             holder.downNum.setText("DownNum");

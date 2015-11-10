@@ -20,9 +20,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         //Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_detail);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setTitle("应用："+getIntent().getStringExtra("appName"));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,15 +31,14 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-
+        /*
         //使用CollapsingToolbarLayout后，title需要设置到CollapsingToolbarLayout上
-        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_detail);
-        collapsingToolbar.setTitle("应用："+getIntent().getStringExtra("appName"));
-
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.detail_collapsing_toolbar);
+        collapsingToolbar.setTitle("应用："+getIntent().getStringExtra("appName"));*/
         //设置Viewpager
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager_detail);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.detail_viewpager);
         setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_detail);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.detail_tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

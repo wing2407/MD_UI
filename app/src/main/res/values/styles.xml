@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">#3aabb9</item>
         <item name="colorControlActivated">#3aabb9</item>
         <item name="android:textColorHint">#FFFFFF</item>
-        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlNormal">#f2f2f2</item>
         <item name="colorControlHighlight">#88ccd5</item>
         <item name="android:textColorPrimary">@android:color/black</item>
 

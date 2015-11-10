@@ -23,7 +23,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        saveSearchHistory(Math.random() + "828");
+
 
         recyclerView = (RecyclerView)findViewById(R.id.search_rv);
 
@@ -34,30 +34,4 @@ public class SearchActivity extends AppCompatActivity {
 
     }
 
-
-    /**
-     * 保存历史搜索记录
-     * @param inputText
-     */
-    public void saveSearchHistory(String inputText) {
-        FileOutputStream out = null;
-        BufferedWriter writer = null;
-        try {
-            out = openFileOutput("SearchHistory", Context.MODE_APPEND);
-            writer = new BufferedWriter(new OutputStreamWriter(out));
-            writer.write(inputText);
-            writer.write("\r\n");//加入换行
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }

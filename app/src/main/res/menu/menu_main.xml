@@ -8,7 +8,7 @@
         android:orderInCategory="100"
         android:icon="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
         android:title="@string/action_settings"
-        app:showAsAction="collapseActionView|ifRoom" />
+        appcompat:showAsAction="never" />
 
 <!--    <item android:id="@+id/action_search"
         android:title="@string/action_search"

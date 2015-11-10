@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         //设置ToolBar
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(mToolbar);
 
         //设置抽屉DrawerLayout
-        final DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,
                 R.string.drawer_open, R.string.drawer_close);
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.setClickable(true);
 
         //设置导航栏NavigationView的点击事件
-        NavigationView mNavigationView = (NavigationView) findViewById(R.id.navigation_view);
+        NavigationView mNavigationView = (NavigationView) findViewById(R.id.main_navigation_view);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -79,11 +79,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //设置Viewpager
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.main_viewpager);
         // viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setPageTransformer(true, new DepthPageTransformer());
         setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.main_tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -131,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_search:
                 startActivity(new Intent(this,SearchActivity.class));
-
+            case R.id.action_settings:
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
