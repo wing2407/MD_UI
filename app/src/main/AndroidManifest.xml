@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.com.hewoyi.md_ui" >
+    package="cn.com.hewoyi.market" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".MainActivity"
+            android:name="cn.com.hewoyi.market.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name" >
             <intent-filter>
@@ -31,11 +31,11 @@
                 android:value=".SearchResultsActivity" />-->
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name="cn.com.hewoyi.market.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".SearchResultsActivity"
+            android:name="cn.com.hewoyi.market.SearchResultsActivity"
             android:label="@string/title_activity_search_results" >
 
            <!--  to identify this activity as "searchable" -->
@@ -50,7 +50,7 @@
                 android:resource="@xml/searchable" />-->
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name="cn.com.hewoyi.market.SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/SearchActivityTheme"
             android:configChanges="orientation|keyboardHidden|locale"

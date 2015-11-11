@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+
+
 
 public class CategoryFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+
 
 
 public class SearchActivityRvAdapter extends RecyclerView.Adapter<SearchActivityRvAdapter.ViewHolder> {
@@ -53,28 +54,27 @@ public class SearchActivityRvAdapter extends RecyclerView.Adapter<SearchActivity
             itemView.findViewById(R.id.search_rv_item).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(dataList.get(getAdapterPosition()).equals("删除所有历史记录")){
-                        try {
-                            mContext.openFileOutput("SearchHistory", Context.MODE_PRIVATE).close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }else {
-                        Toast.makeText(mContext,dataList.get(getAdapterPosition()),Toast.LENGTH_LONG).show();
-                    }
+
+                    Toast.makeText(mContext, dataList.get(getAdapterPosition()), Toast.LENGTH_LONG).show();
                 }
+
             });
         }
     }
-    
 
-    public void saveSearchHistory(String searchText){}  //保存搜索记录
 
-    public List<String> loadSearchHistory(){return new ArrayList<>();}       //加载搜索记录
+    public void saveSearchHistory(String searchText) {
+    }  //保存搜索记录
 
-    public void deleteSearchHistory(String text){}  //删除某一项搜索记录
+    public List<String> loadSearchHistory() {
+        return new ArrayList<>();
+    }       //加载搜索记录
 
-    public void clearSearchHistory(){}      //清除所有搜索记录
+    public void deleteSearchHistory(String text) {
+    }  //删除某一项搜索记录
+
+    public void clearSearchHistory() {
+    }      //清除所有搜索记录
 
     public String[] data =
             {"Cupcake", "Donut", "Eclair",

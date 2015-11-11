@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cn.com.hewoyi.md_ui.SearchResultsActivity">
+    tools:context="cn.com.hewoyi.market.SearchResultsActivity">
 
     <TextView
         android:id="@+id/search_result"

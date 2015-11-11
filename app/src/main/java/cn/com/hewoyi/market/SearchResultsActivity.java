@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.app.SearchManager;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+
 
 public class SearchResultsActivity extends AppCompatActivity {
 

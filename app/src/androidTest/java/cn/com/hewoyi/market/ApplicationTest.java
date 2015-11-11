@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

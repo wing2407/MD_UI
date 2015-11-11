@@ -1,8 +1,7 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +15,8 @@ import android.widget.Toast;
 import com.balysv.materialripple.MaterialRippleLayout;
 
 import java.util.List;
+
+
 
 public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.VersionViewHolder> {
     List<String> versionModels;

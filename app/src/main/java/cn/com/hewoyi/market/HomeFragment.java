@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.os.Bundle;
 import android.os.Message;
@@ -20,6 +20,8 @@ import android.support.v4.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
+
 
 /**
  * Home主页界面Fragment

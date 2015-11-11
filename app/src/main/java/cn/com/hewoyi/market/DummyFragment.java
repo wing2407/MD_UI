@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  * Created by Administrator on 2015/10/20.

@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

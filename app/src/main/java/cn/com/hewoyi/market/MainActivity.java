@@ -1,4 +1,4 @@
-package cn.com.hewoyi.md_ui;
+package cn.com.hewoyi.market;
 
 
 import android.content.Intent;
@@ -20,6 +20,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -27,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(cn.com.hewoyi.md_ui.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-        getSharedPreferences("test", MODE_APPEND).edit().putString("item", getTaskId()+"").commit();
-        Log.i("Main",getPackageCodePath());
+       Toast.makeText(this,getPackageName(),Toast.LENGTH_LONG).show();
 
         //设定状态栏的颜色，当版本大于4.4时起作用
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
